@@ -33,7 +33,10 @@ class TabLink {
     //Convert each this.cards element into a new instance of the TabCard class.
     //Pass in a card object to the TabCard class.
 
-    console.log(this.cards); //1:22PM... line 36 returns nodelist with all cards (see line 15-17)
+    //console.log(this.cards); //1:22PM... line 36 returns nodelist with all cards (see line 15-17)
+    //2:22 PM this logs 6 times, God knows why.
+    //2:23 PM there are 6 items in the node list for tabs (all, js, tech, node, jquerry, bootstrap)
+    //Tabs get selected, (different styling) but, cards don't get sorted., and won't UNselect)
 
     this.cards = Array.from(this.cards).map(
       eachElement33 => new TabCard(eachElement33) //less confident about eachElement33 in teachTabCard line 34
@@ -46,14 +49,25 @@ class TabLink {
   selectTab() {
     // Select all elements with the .tab class on them
     const tabs = document.querySelectorAll(".tab");
+    //console.log(tabs);   (not getting anything!!!! 3:01)
     // Iterate through the NodeList removing the .active-tab class from each element   == Clean slate this makes ALL tabs inactive
-    tabs.forEach(element49 => element49.classList.remove(".active-tab")); //HAD TOGGLE ON FIRST ATTEMPT
+    //ARROW function attempt
+    tabs.forEach(tabElement => tabElement.classList.remove(".active-tab")); //HAD TOGGLE ON FIRST ATTEMPT
+    //this is not working, but adding ative tab is... something wrong with foreach /cb??
+
+    //regular foreach attempt at itterating node list and removing active tab
+    // tabs.forEach(function(tabElement) {
+    //   tabElement.classList.remove(".active-tab");
+    // });
+
     // Select all of the elements with the .card class on them
     const cards = document.querySelectorAll(".card");
     // Iterate through the NodeList setting the display style each one to 'none'
-    cards.forEach(element52 => (element52.classList.display = "none")); //Clean slate, removes ALL cards
+    cards.forEach(tabElement => (tabElement.classList.display = "none")); //Clean slate, removes ALL cards  //prettier changes (compare to 53)!!!
     // Add a class of ".active-tab" to this.tabElement
+
     this.tabElement.classList.add("active-tab"); //REFERENCED, MINIMAL UNDERSTANDING!!!!
+
     //adding active tab to the tab that was clicked when this function was invoked from click trigger line 43.
 
     // Notice we are looping through the this.cards array and invoking selectCard() from the TabCard class.
