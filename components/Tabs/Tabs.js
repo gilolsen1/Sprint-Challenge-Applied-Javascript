@@ -4,7 +4,8 @@ class TabLink {
     this.tabElement = tabElement; //this is going to be each .tab element passed in to constructor from each iteration of forEach()
 
     // Get the `data-tab` value from this.tabElement and store it here
-    this.tabData = this.tabElement.dataset.tab; //referencing line 4 assignment. using .tab to get the custom attr value.
+    this.tabData = tabElement.dataset.tab; //referencing line 4 assignment. using .tab to get the custom attr value.
+    //console.log(this.tabData); //took off this on right side, no difference in console - logs each attr each way
 
     // We need to find out if a user clicked 'all' cards or a specific category.
     //Follow the instructions below to accomplish this task:
@@ -12,7 +13,7 @@ class TabLink {
     // <- Delete this comment block when you work on the if statement (was /*)
 
     // Check to see if this.tabData is equal to 'all'
-    if ((this.tabData = "all")) {
+    if (this.tabData === "all") {
       // If `all` is true, select all cards regardless of their data attribute values
       this.cards = document.querySelectorAll(".card");
     } else {
@@ -48,12 +49,16 @@ class TabLink {
 
   selectTab() {
     // Select all elements with the .tab class on them
-    const tabs = document.querySelectorAll(".tab");
+
+    let tabs = document.querySelectorAll(".tab");
+
     //console.log(tabs);   (not getting anything!!!! 3:01)
     // Iterate through the NodeList removing the .active-tab class from each element   == Clean slate this makes ALL tabs inactive
     //ARROW function attempt
-    tabs.forEach(tabElement => tabElement.classList.remove(".active-tab")); //HAD TOGGLE ON FIRST ATTEMPT
+    tabs.forEach(tabElement => tabElement.classList.remove("active-tab")); //HAD TOGGLE ON FIRST ATTEMPT  //console.log(tabElement)); //
     //this is not working, but adding ative tab is... something wrong with foreach /cb??
+
+    // HAD extra . on active tab GOD DAMNIT  RANDY'S GONNA SLAP ME
 
     //regular foreach attempt at itterating node list and removing active tab
     // tabs.forEach(function(tabElement) {
@@ -62,11 +67,15 @@ class TabLink {
 
     // Select all of the elements with the .card class on them
     const cards = document.querySelectorAll(".card");
-    // Iterate through the NodeList setting the display style each one to 'none'
-    cards.forEach(tabElement => (tabElement.classList.display = "none")); //Clean slate, removes ALL cards  //prettier changes (compare to 53)!!!
-    // Add a class of ".active-tab" to this.tabElement
+    //console.log(cards);
 
-    this.tabElement.classList.add("active-tab"); //REFERENCED, MINIMAL UNDERSTANDING!!!!
+    // Iterate through the NodeList setting the display style each one to 'none'
+    cards.forEach(tabElement => (tabElement.style.display = "none")); //create style inline  OR do hidden card / display none
+    //WORKS to display none ALL cards when any tab is selected.
+    //Clean slate, removes ALL cards  //prettier changes (compare to 53)!!!
+
+    // Add a class of ".active-tab" to this.tabElement
+    this.tabElement.classList.add("active-tab"); //WORKING --------FYI   REFERENCED, MINIMAL UNDERSTANDING!!!!
 
     //adding active tab to the tab that was clicked when this function was invoked from click trigger line 43.
 
@@ -86,7 +95,7 @@ class TabCard {
   }
   selectCard() {
     // Update the style of this.cardElement to display = "flex"
-    this.cardElement.classList.display = "flex";
+    this.cardElement.style.display = "inline-block";
   }
 }
 
@@ -103,6 +112,8 @@ and pass in each tab (I'm using "eachTab" as the placeholder) as a parameter
 // ORIGINAL ATTEMPT:  //    .forEach( (eachTab) new TabLink => ());
 */
 
-let tabs = document
-  .querySelectorAll(".tab")
-  .forEach(eachTab => new TabLink(eachTab));
+let tabs = document.querySelectorAll(".tab");
+
+tabs.forEach(eachTab => new TabLink(eachTab));
+
+//console.log(tabs);
