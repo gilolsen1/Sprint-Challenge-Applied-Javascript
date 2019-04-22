@@ -20,7 +20,7 @@ class TabLink {
       this.cards = document.querySelectorAll(
         `.card[data-tab='${this.tabData}'`
       );
-      // FIRST ATTEMPT LINE 19 NO REFERENCE ......    just ${this.tabData}
+      // FIRST ATTEMPT LINE 19/21 NO REFERENCE ......    just ${this.tabData}
       //- need to give 'class path' to look for that data attr
       // ------a.)string literal entire thing (?expression??)...
       //-------b.)use [] syntax to select custom data attrs
