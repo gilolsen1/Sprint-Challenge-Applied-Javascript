@@ -1,4 +1,4 @@
-# Sprint-Challenge Applied Javascript - Lambda Times
+# Sprint2-Challenge Applied Javascript - Lambda Times
 
 This challenge allows you to practice the concepts and techniques learned over the past week and apply them in a concrete project. This Sprint explored the DOM and the concept of components. During this Sprint, you studied the DOM, DOM Events, and Components. In your challenge this week, you will demonstrate proficiency by creating an online Lambda newspaper called "Lambda Times."
 
@@ -30,28 +30,38 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager
 
-1. What is the DOM?
+1. What is the DOM??
+   
+The DOM is short for "document object model"... Which is a representation of the HTML document as an OBJECT.  The DOM only exists in the browser so that our javascript can make changes to it based on how the user interacts with the site in the browser. The HTML and CSS are NOT affected by changes to the DOM. 
 
 2. What is an event?
 
+An event is any user interaction that occurs on a page loaded and live in a browswer.  Examples include mouse actions (click, right click, mouse over, on, off etc) Scrolling, keyboard items, (keydown, up etc), process stages such as loading or playing videos/animations etc. 
+
 3. What is an event listener?
+   
+  An event listener is a javascript method that can be applied to an object. It takes in two parameters- first, the event that you want to "listen" for, such as a "click".  The event is set with a string.   The second argument is the function to be invoked when the event is triggered. 
 
 4. Why would we convert a NodeList into an Array?
 
+We'd pass a nodelist into Array.from() to unlock more functionality. Arrays have more built-in methods for javascript.  DOM objects/elements are designed to be language-agnostic, so they have limited functionality. A nodelist is an "array-like object", but it is not ACTUALLY a javascript array.  We  CAN use .forEach() on a nodelist, but we can NOT use other array methods like .reduce(), .map(), .length etc.
+
 5. What is a component?
+
+A component is a combination of html, css and javascript that creates chunks of code that can be re-used with the same functionality.  In my own words, we build the experience with a combination of the three tools from the experience in the DOM backwards.  The Javscript does the heavy lifting, dictating what happens in the DOM- the HTML and CSS are the foundation and materials that get manipulated based on user interaction.  The extra bonus is that if you copy/paste a chunk of the HTML with the elements that are styled/javascripted, you get to leverage all that magic built in as much as you want- Ie. you can make a million articles that have the same functionality.
 
 ### Git Set up
 
-* [ ] Fork the project into your GitHub user account
-* [ ] Clone the forked project into a directory on your machine
-* [ ] Create a pull request before you start working on the project requirements.  You will continuously push your updates throughout the project.
-* [ ] You are now ready to build this project with your preferred IDE
+* [ x] Fork the project into your GitHub user account
+* [x ] Clone the forked project into a directory on your machine
+* [ x] Create a pull request before you start working on the project requirements.  You will continuously push your updates throughout the project.
+* [x ] You are now ready to build this project with your preferred IDE
 
 ## Minimum Viable Product
 
 Your finished project must include all of the following requirements:
 
-* [ ] Look through the HTML code paying particular attention to the Tabs component and the Cards components. You will notice they share a data attribute. We will be using this data attribute to determine which cards should show when each tab is selected.
+* [x ] Look through the HTML code paying particular attention to the Tabs component and the Cards components. You will notice they share a data attribute. We will be using this data attribute to determine which cards should show when each tab is selected.
 
 * [ ] Following the instructions in the `Tabs.js` file, complete the `TabLink`, and `TabCard` class components. It will look and feel very similar to the last project we worked on, but with a twist. Now, instead of one `Item` to display, we will need to display a collection of `Cards`. Think about ways to iterate over an array and manipulate each item.  **Note: You will need to un-comment the code after the lines of instructions.  The code is commented out so you can work error-free**
 
